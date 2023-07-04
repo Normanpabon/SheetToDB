@@ -1,19 +1,21 @@
 import csv
 class CsvHanlder:
 
+    #todo : colocar un atributo donde se guarde la informacion ya leida del archivo
+
     def __init__(self, filePath, filename, encoding):
         self.filePath = filePath
         self.filename = filename
         self.encoding = encoding
 
     def getFirstLine(self):
-        with open(self.filename) as ficheroCSV:
+        with open(self.filePath+self.filename) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
             for line in dictLector:
                 return line
             
     def returnLines(self, lines):
-        with open(self.filename) as ficheroCSV:
+        with open(self.filePath+self.filename) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
             itemList = []
             i = lines
@@ -30,7 +32,7 @@ class CsvHanlder:
             return itemList
 
     def readSelf(self):
-        with open(self.filename) as ficheroCSV:
+        with open(self.filePath+self.filename) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
 
 
