@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1050</x>
+      <y>910</y>
+      <w>390</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+-id: Long
+_-ClassAttribute: Long_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1240</x>
+      <y>370</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>DataType
+--
+
+--
+_isDate( string ) : bool_
+_isFloat( string) : bool_
+_getAttributesDataTypes( obj ): Dict _
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1560</x>
+      <y>380</y>
+      <w>220</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>CsvHandler
+--
+- filePath : string
+- filename : string
+- encoding : string
+--
++ getFirstLine() : Dict
++ returnLines( int ) : List[Dict]
++ readSelf() : void
++ readCsv() : void
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>270</y>
+      <w>530</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>DBConnectors
+--
+bg=orange
+layer=-3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1190</x>
+      <y>270</y>
+      <w>670</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>FileProcessing
+--
+bg=orange
+layer=-3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>330</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>MysqlConnector
+--
+
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>470</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>SqlserverConnector
+--
+
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>330</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Sqlite
+--
+
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1560</x>
+      <y>580</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ExcelSheetHandler
+--
+
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>20</x>
+      <y>740</y>
+      <w>530</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>GUI ?
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>580</x>
+      <y>270</y>
+      <w>590</w>
+      <h>430</h>
+    </coordinates>
+    <panel_attributes>DBConfig
+--
+bg=orange
+layer=-3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>530</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>tableScheme
+--
+- tableName : String
+- tableAttributes : Dic {}
+- tableData[Dic] : [Dic]
+--
++ setTableAttributes(attributes : dict) : void
++ setTableData( data : [dict]) : void
++ setTableName( name : String) : void
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>350</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>DbServer
+--
+- dbHost : String
+- dbPort : Int
+- dbType : String {Mysql, SqlServer, SQLite}
+- dbUser : String
+- userPassword : String
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>810</y>
+      <w>300</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>SheetToDB
+--
+- dbName : String
+- dbServersList[DbServer] : List
+- dbTablesList[tableScheme] : List
+- csvFilesToProcess : csvFiles[CsvHandler]
+- excFilesToProcess : excFiles[ExcelHandler]
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
