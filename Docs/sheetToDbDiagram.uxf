@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>812</y>
-      <w>273</w>
-      <h>119</h>
+      <x>864</x>
+      <y>1044</y>
+      <w>351</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>Main
 --
@@ -18,15 +18,17 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1414</x>
-      <y>224</y>
-      <w>161</w>
-      <h>105</h>
+      <x>1782</x>
+      <y>288</y>
+      <w>315</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>DataType
 --
 
 --
+_extensionChecker(filePath:str, extension:str): bool_
+_extractFilenameFromPath( path) : String_
 _isDate( string ) : bool_
 _isFloat( string) : bool_
 _getAttributesDataTypes( obj ): Dict _
@@ -36,10 +38,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1820</x>
-      <y>511</y>
-      <w>203</w>
-      <h>161</h>
+      <x>2304</x>
+      <y>657</y>
+      <w>288</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>CsvHandler
 --
@@ -47,6 +49,7 @@ bg=blue</panel_attributes>
 - filename : string
 - encoding : string
 --
++ CsvHandler(filePath, filename, encoding): void
 + getFirstLine() : Dict
 + returnLines( int ) : List[Dict]
 + readSelf() : void
@@ -57,10 +60,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>28</x>
+      <x>0</x>
       <y>0</y>
-      <w>525</w>
-      <h>420</h>
+      <w>675</w>
+      <h>540</h>
     </coordinates>
     <panel_attributes>DBConnectors
 --
@@ -71,10 +74,10 @@ layer=-3</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>1351</x>
-      <y>140</y>
-      <w>686</w>
-      <h>560</h>
+      <x>1701</x>
+      <y>180</y>
+      <w>1053</w>
+      <h>720</h>
     </coordinates>
     <panel_attributes>FileProcessing
 --
@@ -85,10 +88,10 @@ layer=-3</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>42</x>
-      <y>42</y>
-      <w>147</w>
-      <h>84</h>
+      <x>18</x>
+      <y>54</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>MysqlConnector
 --
@@ -100,10 +103,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>42</x>
-      <y>161</y>
-      <w>147</w>
-      <h>84</h>
+      <x>18</x>
+      <y>207</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>SqlserverConnector
 --
@@ -115,10 +118,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>273</x>
-      <y>42</y>
-      <w>147</w>
-      <h>84</h>
+      <x>315</x>
+      <y>54</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Sqlite
 --
@@ -130,10 +133,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1764</x>
-      <y>217</y>
-      <w>210</w>
-      <h>154</h>
+      <x>2232</x>
+      <y>279</y>
+      <w>270</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>ExcelSheetHandler
 --
@@ -145,10 +148,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>28</x>
-      <y>469</y>
-      <w>371</w>
-      <h>203</h>
+      <x>0</x>
+      <y>603</y>
+      <w>477</w>
+      <h>261</h>
     </coordinates>
     <panel_attributes>GUI ?
 --
@@ -158,10 +161,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>658</x>
+      <x>810</x>
       <y>0</y>
-      <w>476</w>
-      <h>434</h>
+      <w>819</w>
+      <h>558</h>
     </coordinates>
     <panel_attributes>DBConfig
 --
@@ -172,10 +175,10 @@ layer=-3</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
-      <y>112</y>
-      <w>224</w>
-      <h>112</h>
+      <x>1278</x>
+      <y>153</y>
+      <w>288</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>TableScheme
 --
@@ -183,19 +186,20 @@ layer=-3</panel_attributes>
 - tableAttributes : Dic {}
 - tableData[Dic] : [Dic]
 --
-+ setTableAttributes(attributes : dict) : void
-+ setTableData( data : [dict]) : void
-+ setTableName( name : String) : void
++ TableScheme( tableName : String) : void
+- setTableAttributes(attributes : dict) : void
+- setTableData( data : [dict]) : void
+- setTableName( name : String) : void
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>672</x>
-      <y>42</y>
-      <w>196</w>
-      <h>119</h>
+      <x>828</x>
+      <y>54</y>
+      <w>387</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>DbServer
 --
@@ -205,16 +209,17 @@ bg=blue</panel_attributes>
 - dbUser : String
 - userPassword : String
 --
++ DbServer(dbHost, dbPort, dbType, dbUser, userPassword): void
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>644</y>
-      <w>210</w>
-      <h>98</h>
+      <x>900</x>
+      <y>828</y>
+      <w>270</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>SheetToDB
 --
@@ -231,10 +236,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>742</x>
-      <y>385</y>
-      <w>84</w>
-      <h>273</h>
+      <x>918</x>
+      <y>495</y>
+      <w>108</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -245,10 +250,10 @@ puede tener &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>700</x>
-      <y>245</y>
-      <w>224</w>
-      <h>147</h>
+      <x>864</x>
+      <y>315</y>
+      <w>441</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>DatabaseCreator
 --
@@ -256,21 +261,23 @@ puede tener &gt;</panel_attributes>
 - dbHost : DbServer
 - dbTables : dbTables[tableScheme]
 - dbConnector : DbConnectionManager
+- Sqlite : Bool
 
 --
-
++ DatabaseCreator(dbName : String) : void
 - addTable( tableScheme : TableScheme) : void
 bg=blue
-- setDbHost( dbServer : DbServer) : void</panel_attributes>
+- setDbHost( dbServer : DbServer) : void
+- setDbHostManually(dbHost, dbPort, dbType, dbUser, userPassword): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>721</x>
-      <y>154</y>
-      <w>63</w>
-      <h>105</h>
+      <x>891</x>
+      <y>198</y>
+      <w>81</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -281,24 +288,24 @@ tiene un &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>917</x>
-      <y>217</y>
-      <w>147</w>
-      <h>105</h>
+      <x>1296</x>
+      <y>288</y>
+      <w>189</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1 .. n
 esta compuesta por &gt;</panel_attributes>
-    <additional_attributes>10.0;120.0;130.0;120.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;140.0;110.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1400</x>
-      <y>511</y>
-      <w>280</w>
-      <h>161</h>
+      <x>1764</x>
+      <y>657</y>
+      <w>360</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>FilesPipeline
 --
@@ -306,6 +313,7 @@ esta compuesta por &gt;</panel_attributes>
 - excFilesToProcess : excFiles[ExcelHandler]
 
 --
+- addCsvFileFromPath( path : String ): void
 - addCsvFile( file : CsvHandler ): void
 - addExcFile( file : ExcelHandler ): void
 bg=blue</panel_attributes>
@@ -314,10 +322,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>931</x>
-      <y>546</y>
-      <w>483</w>
-      <h>161</h>
+      <x>1161</x>
+      <y>702</y>
+      <w>621</w>
+      <h>207</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -328,10 +336,10 @@ tiene &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>273</y>
-      <w>168</w>
-      <h>105</h>
+      <x>369</x>
+      <y>351</y>
+      <w>216</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>DbConnectionManager
 --
@@ -345,10 +353,10 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>476</x>
-      <y>308</y>
-      <w>238</w>
-      <h>35</h>
+      <x>576</x>
+      <y>396</y>
+      <w>306</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -359,10 +367,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>826</x>
-      <y>735</y>
-      <w>28</w>
-      <h>91</h>
+      <x>1026</x>
+      <y>945</y>
+      <w>36</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -373,10 +381,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1673</x>
-      <y>595</y>
-      <w>161</w>
-      <h>35</h>
+      <x>2115</x>
+      <y>765</y>
+      <w>207</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -387,10 +395,10 @@ Csvs a procesar &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1673</x>
-      <y>364</y>
-      <w>203</w>
-      <h>189</h>
+      <x>2115</x>
+      <y>468</y>
+      <w>261</w>
+      <h>243</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -401,12 +409,68 @@ Excels a procesar &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>322</y>
-      <w>21</w>
-      <h>203</h>
+      <x>1845</x>
+      <y>441</y>
+      <w>27</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2304</x>
+      <y>927</y>
+      <w>252</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Nota: Al CsvHandler le hace falta 
+un atributo que permita dejar guardada
+la lectura previa de un archivo
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2259</x>
+      <y>387</y>
+      <w>225</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Nota: Pendiente de implementacion
+
+bg=yellow
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>387</x>
+      <y>432</y>
+      <w>225</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Nota: Pendiente de implementacion
+
+bg=yellow
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>225</x>
+      <y>702</y>
+      <w>225</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Nota: Pendiente de implementacion
+
+bg=yellow
+layer=2</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

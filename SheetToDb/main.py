@@ -3,6 +3,7 @@ from FileProcessing import CsvHandler
 from FileProcessing import DataType
 import SheetToDB
 
+
 def main():
 
     # Objeto principal
@@ -16,7 +17,7 @@ def main():
     while(userInput != "-1"):
 
         print("\n\n\n\nBienvenido a SheetToDB ")
-        print("\n1.Convertir archivo csv a una base de datos\n2.TEST \n-1 . para salir")
+        print("\n1.Convertir archivo csv a una base de datos\n2.TEST FIJO \n3.TEST SheetToDb \n-1 . para salir")
         userInput = input("Ingrese una opcion:")
         if(userInput == "1"):
             print("Ingrese las rutas de los archivos separadas por comas")
@@ -33,13 +34,18 @@ def main():
             atributes = DataType.DataType.getAttributesDataTypes(firstLineObj1)
 
             print(atributes)
-            # finPruebas
 
-            # Tk display
-            root = tk.Tk()
-            c = tk.Canvas(root, width=1080, height=720, bg='black')
-            c.pack()
-            # root.mainloop()
+
+
+        elif(userInput == "3"):
+            # todo: multiple archivos, probando solo con uno por ahora
+            filesToProccess = input("Ingrese las rutas de los archivos a procesar seguidos de ',' entre ellos")
+
+            #print(DataType.DataType.extractFilenameFromPath(filesToProccess))
+            sheetToDb.addCsvFile(filesToProccess)
+
+
+       # finPruebas
 
 
 

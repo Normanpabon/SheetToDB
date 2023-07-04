@@ -2,6 +2,43 @@ from dateutil.parser import parse
 class DataType:
 
     @staticmethod
+    # Devuelve verdadero o falso si la ruta de archivo dada concuerda con la extension a evaluar
+    def extensionChecker(filePath:str, extension:str):
+        aproved = False
+        tmpFilename = DataType.extractFilenameFromPath(filePath)
+        lastDot = 0
+        i = 0
+        while(i < len(tmpFilename)):
+            if(tmpFilename[i] == "."):
+                lastDot = i
+
+            i += 1
+
+        if(tmpFilename[lastDot:len(tmpFilename)].casefold() == extension.casefold()):
+            aproved = True
+
+        return aproved
+
+    @staticmethod
+    # Devuelve el nombre del archivo con su extension respectiva
+    # todo : adaptar para revisar tambien en busca de slash normal
+    def extractFilenameFromPath( path : str ):
+
+        lastSlash = 0
+        i = 0
+        while(i < len(path)):
+
+            if(path[i] == "\\" or path[i] == "/" ):
+                lastSlash = i
+            i+=1
+
+        return ( path[lastSlash+1:(len(path))] )
+
+
+
+
+        pass
+    @staticmethod
     def isDate( string, fuzzy=False):
         try:
             parse(string, fuzzy=fuzzy)
