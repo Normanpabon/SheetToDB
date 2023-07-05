@@ -7,7 +7,44 @@ class DataType:
         pass
 
     @staticmethod
-    def isEmptyDict(dic, threshold):
+    def separateStrWithComma(string):
+        list = []
+
+        if (len(string) == 0):
+            return list
+
+        i = 0
+        lastComma = -1
+        lastStrEndIndex = -1
+        while (i < len(string)):
+
+            # Verificar si ya hay una "," encontrada
+
+            if (string[i] == ","):
+                lastComma = i
+
+                # Primer string encontrado
+                if (lastStrEndIndex == -1):
+                    list.append((string[0:lastComma]).strip())
+                    lastStrEndIndex = lastComma + 1
+                else:
+                    list.append((string[lastStrEndIndex:lastComma]).strip())
+                    lastStrEndIndex = i + 1
+
+            i += 1
+
+        if (lastComma == -1):
+            list.append(string.strip())
+        elif not (lastComma == len(string) - 1):
+            list.append((string[lastStrEndIndex:len(string)]).strip())
+
+        return list
+
+
+
+
+    @staticmethod
+    def isEmptyDict(dic, threshold:int):
         result = True
         nonEmptyValCount = 0
 

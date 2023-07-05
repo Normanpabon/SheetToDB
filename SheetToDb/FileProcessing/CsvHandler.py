@@ -15,11 +15,24 @@ class CsvHanlder:
         # Confirma si ya se ha cargado los datos a la lista
         self.isReaded = False
 
+
+    def getFirstLine(self):
+        if(self.isReaded):
+            for line in self.readedData:
+                if(len(line) > 0):
+                    return line
+        else:
+            self.readSelf()
+            print("Err: El archivo no se ha leido o se encuentra vacio")
+            return None
+
+    '''
     def getFirstLine(self):
         with open(self.filePath + self.filename) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
             for line in dictLector:
                 return line
+    '''
 
     def returnLines(self, lines):
         with open(self.filePath + self.filename) as ficheroCSV:

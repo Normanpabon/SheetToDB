@@ -38,11 +38,15 @@ def main():
 
 
         elif(userInput == "3"):
-            # todo: multiple archivos, probando solo con uno por ahora
             filesToProccess = input("Ingrese las rutas de los archivos a procesar seguidos de ',' entre ellos")
+            filesToProccessList = DataType.DataType.separateStrWithComma(filesToProccess)
+
+
+            for file in filesToProccessList:
+                sheetToDb.addCsvFile(file)
 
             #print(DataType.DataType.extractFilenameFromPath(filesToProccess))
-            sheetToDb.addCsvFile(filesToProccess)
+            #sheetToDb.addCsvFile(filesToProccess)
 
 
        # finPruebas
