@@ -1,12 +1,26 @@
 from dateutil.parser import parse
 class DataType:
 
+    @staticmethod
+    #Recibe nombre de archivo con extension y revuelve retirando lo que este del ultimo punto en adelante (la extension)
+    # usar para obtener el nombre de la tabla a crear, todo: considerar nombres con espacios
+    def nameWithoutExtension(name: str):
+        i = 0
+        lastDot = -1
+        while (i < len(name)):
+            if (name[i] == "."):
+                lastDot = i
+            i += 1
+
+        return name[0:lastDot]
+
     #Todo: Metodo para estandarizar la fecha a formato ISO 8601. (YYYY-MM-DD)
     @staticmethod
     def dateToISOStandard(date:str):
         pass
 
     @staticmethod
+    # Metodo para separar cadenas de texto separadas por comas, las devuelve en una lista
     def separateStrWithComma(string):
         list = []
 
@@ -44,6 +58,7 @@ class DataType:
 
 
     @staticmethod
+    # Devuelve verdadero si el diccionario se encuentra con mas espacios vacios que los dados en el threshold
     def isEmptyDict(dic, threshold:int):
         result = True
         nonEmptyValCount = 0

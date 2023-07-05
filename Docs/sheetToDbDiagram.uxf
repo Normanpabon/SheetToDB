@@ -27,6 +27,7 @@
 --
 
 --
+_nameWithoutExtension(name:str):str
 _dateToISOStandard(date:str): string_
 _separateStrWithComma(string): List[string]_
 _isEmptyDict( dict, threshold ) : bool
@@ -221,10 +222,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>736</y>
-      <w>240</w>
-      <h>112</h>
+      <x>744</x>
+      <y>704</y>
+      <w>296</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>SheetToDB
 --
@@ -233,8 +234,10 @@ bg=blue</panel_attributes>
 
 --
 
-- setDbSettings( nombre, dbHost) : void
+- setDbSettings( nombre) : void
+- addCsvFile(path) : void
 - loadFiles() : void
+- createTablesSchemes() : void
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
@@ -242,23 +245,23 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>816</x>
-      <y>440</y>
+      <y>464</y>
       <w>96</w>
-      <h>312</h>
+      <h>256</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
 puede tener &gt;</panel_attributes>
-    <additional_attributes>10.0;370.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;300.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>768</x>
       <y>280</y>
-      <w>392</w>
-      <h>168</h>
+      <w>416</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>DatabaseCreator
 --
@@ -270,6 +273,7 @@ puede tener &gt;</panel_attributes>
 
 --
 + DatabaseCreator(dbName : String) : void
+- addTableFromScratch(self, tableName: str, tableAttrib, tableData): void
 - addTable( tableScheme : TableScheme) : void
 bg=blue
 - setDbHost( dbServer : DbServer) : void
@@ -293,16 +297,16 @@ tiene un &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
+      <x>1176</x>
       <y>256</y>
-      <w>168</w>
+      <w>152</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1 .. n
 esta compuesta por &gt;</panel_attributes>
-    <additional_attributes>10.0;110.0;140.0;110.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;110.0;110.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

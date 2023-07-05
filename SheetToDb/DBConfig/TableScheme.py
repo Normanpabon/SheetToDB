@@ -1,10 +1,9 @@
 class TableScheme:
 
-    tableAttributes = {}
-    tableData = []
-
-    def __init__(self, tableName):
+    def __init__(self, tableName, tableAttributes, tableData ):
         self.tableName = tableName
+        self.tableAttributes = tableAttributes
+        self.tableData = tableData
 
     def setTableAttributes(self, attributes):
         self.tableAttributes = attributes

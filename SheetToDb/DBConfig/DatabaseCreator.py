@@ -15,6 +15,10 @@ class DatabaseCreator:
     def setSqlite(self, lite: bool):
         self.sqlite = lite
 
+    # Crea una tabla desde zero y la agrega a la lista de tablas del objeto actual
+    def addTableFromScratch(self, tableName: str, tableAttrib, tableData):
+        tmpObj = TableScheme.TableScheme(tableName, tableAttrib, tableData)
+        self.addTable(tmpObj)
     def addTable(self, table: TableScheme.TableScheme):
         self.dbTables.append(table)
 
