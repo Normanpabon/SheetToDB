@@ -35,7 +35,7 @@ class CsvHanlder:
     '''
 
     def returnLines(self, lines):
-        with open(self.filePath + self.filename) as ficheroCSV:
+        with open(self.filePath) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
             itemList = []
             i = lines
@@ -53,7 +53,7 @@ class CsvHanlder:
 
     # Lee el csv y lo guarda en la variable de clase: readedData
     def readSelf(self):
-        with open(self.filePath + self.filename) as ficheroCSV:
+        with open(self.filePath) as ficheroCSV:
             dictLector = csv.DictReader(ficheroCSV)
 
             for obj in dictLector:

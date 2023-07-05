@@ -234,7 +234,7 @@ bg=blue</panel_attributes>
 --
 
 - setDbSettings( nombre, dbHost) : void
-
+- loadFiles() : void
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
@@ -321,6 +321,8 @@ esta compuesta por &gt;</panel_attributes>
 - addCsvFileFromPath( path : String ): void
 - addCsvFile( file : CsvHandler ): void
 - addExcFile( file : ExcelHandler ): void
+- readCsvFiles() : void
+- readExcFiles() : void
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>

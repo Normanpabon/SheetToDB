@@ -38,3 +38,11 @@ class FilesPipeline:
     def addExcFile(self, file: ExcelSheetHanlder):
 
         self.excFilesToProcess.append(file)
+
+    def readCsvFiles(self):
+
+        for csvFiles in self.csvFilesToProcess:
+            csvFiles.readSelf()
+
+    def readExcFiles(self):
+        pass

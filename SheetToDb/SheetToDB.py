@@ -22,3 +22,7 @@ class SheetToDB:
 
 
         self.fileProcess.addCsvFileFromPath(path)
+
+    def loadFiles(self):
+        self.fileProcess.readCsvFiles()
+        self.fileProcess.readExcFiles()

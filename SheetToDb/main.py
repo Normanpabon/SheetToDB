@@ -45,9 +45,11 @@ def main():
             for file in filesToProccessList:
                 sheetToDb.addCsvFile(file)
 
+            sheetToDb.loadFiles()
             #print(DataType.DataType.extractFilenameFromPath(filesToProccess))
             #sheetToDb.addCsvFile(filesToProccess)
 
+        print(filesToProccess)
 
        # finPruebas
 
