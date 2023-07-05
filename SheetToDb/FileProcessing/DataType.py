@@ -1,6 +1,26 @@
 from dateutil.parser import parse
 class DataType:
 
+    #Todo: Metodo para estandarizar la fecha a formato ISO 8601. (YYYY-MM-DD)
+    @staticmethod
+    def dateToISOStandard(date:str):
+        pass
+
+    @staticmethod
+    def isEmptyDict(dic, threshold):
+        result = True
+        nonEmptyValCount = 0
+
+        for val in dic:
+
+            if (len(dic[val]) != 0):
+                nonEmptyValCount += 1
+
+        if (nonEmptyValCount > threshold):
+            result = False
+
+        return result
+
     @staticmethod
     # Devuelve verdadero o falso si la ruta de archivo dada concuerda con la extension a evaluar
     def extensionChecker(filePath:str, extension:str):
@@ -88,7 +108,7 @@ class DataType:
 
             # Verificamos si esta vacio
             elif (obj[value] == ""):
-                atributes[value] = "VARCHAR"
+                atributes[value] = "VARCHAR(1024)"
 
             # Verificamos si es una fecha
 
@@ -102,7 +122,7 @@ class DataType:
 
             # Se toma como varchar
             else:
-                atributes[value] = "VARCHAR"
+                atributes[value] = "VARCHAR(1024)"
 
             # atributes[value]= (type(obj[value]))
 
