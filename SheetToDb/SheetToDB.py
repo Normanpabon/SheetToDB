@@ -17,6 +17,10 @@ class SheetToDB:
 
         self.dbSettings = DatabaseCreator.DatabaseCreator(dbName)
 
+    def createDb(self):
+
+        self.dbSettings.insertConstructor()
+
 
     def addCsvFile(self, path : str):
 

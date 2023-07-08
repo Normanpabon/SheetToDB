@@ -1,7 +1,8 @@
 class TableScheme:
 
     def __init__(self, tableName, tableAttributes, tableData ):
-        self.tableName = tableName
+
+        self.tableName = "".join(tableName.split())
         self.tableAttributes = tableAttributes
         self.tableData = tableData
 

@@ -5,9 +5,6 @@ from FileProcessing import DataType
 
 class FilesPipeline:
 
-    csvFilesToProcess = None
-    excFilesToProcess = None
-
     def __init__(self):
 
         self.excFilesToProcess = []

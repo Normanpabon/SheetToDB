@@ -1,6 +1,9 @@
 from dateutil.parser import parse
 class DataType:
 
+
+
+
     @staticmethod
     #Recibe nombre de archivo con extension y revuelve retirando lo que este del ultimo punto en adelante (la extension)
     # usar para obtener el nombre de la tabla a crear, todo: considerar nombres con espacios
@@ -13,6 +16,13 @@ class DataType:
             i += 1
 
         return name[0:lastDot]
+
+    #Metodo para quitar espacios en blanco y cambiarlos por "_"
+    @staticmethod
+    def removeWhiteSpaces(string:str):
+        tmpString = ' '.join(string.split())
+        tmpString = tmpString.replace(' ', '_')
+        return tmpString
 
     #Todo: Metodo para estandarizar la fecha a formato ISO 8601. (YYYY-MM-DD)
     @staticmethod
@@ -86,7 +96,9 @@ class DataType:
 
             i += 1
 
-        if(tmpFilename[lastDot:len(tmpFilename)].casefold() == extension.casefold()):
+        tmpFileExt = tmpFilename[lastDot:len(tmpFilename)].casefold()
+
+        if(tmpFileExt == extension.casefold()):
             aproved = True
 
         return aproved
@@ -156,7 +168,7 @@ class DataType:
             if (DataType.isFloat(obj[value])):
                 atributes[value] = "DOUBLE"
             elif (obj[value].isnumeric()):
-                atributes[value] = "INT"
+                atributes[value] = "INTEGER"
 
             # Verificamos si esta vacio
             elif (obj[value] == ""):

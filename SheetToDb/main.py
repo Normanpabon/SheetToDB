@@ -70,9 +70,24 @@ def main():
             # 6. Agregar esquemas de tablas al DatabaseCreator
             # Nota: usar el atributo del obj csvHanlder "isReaded" para saber si ya se cargo en memoria el mismo
             sheetToDb.createTablesSchemes()
+
+
+            # 7. Seleccion de tipo de BD a migrar (todo : implementar, probar solo con sqlite (opc 1) por ahora)
+            tmpInput = int(input("\nTipo de bd a crear. \n0.Sqlite\n1.Mysql\n2.SqlServer\nIngrese una opcion:"))
+            if(tmpInput == 0):
+                # SQLITE
+                # Llamar inicializador de la conexion
+                # Todo: crear metodo para llamado, por buenas practicas
+                sheetToDb.dbSettings.initialiceConnectionManager(tmpInput)
+
+                # Llama la etapa de proceso de las tablas a la bd
+                sheetToDb.createDb()
+            elif(tmpInput ==1):
+                pass
+            elif(tmpInput==2):
+                pass
+
             print(sheetToDb)
-
-
        # finPruebas
 
 
