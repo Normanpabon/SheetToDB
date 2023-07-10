@@ -1,0 +1,17 @@
+{
+    "Action":{
+        "CreateDB":{
+            "SQLITE":"",
+          "MYSQL":""
+        },
+
+        "ReadDB":{
+            "SQLITE":"",
+          "MYSQL":""
+        },
+        "CreateTable":{
+        "SQLITE":"",
+        "MYSQL":""
+        }
+    }
+}

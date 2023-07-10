@@ -30,8 +30,8 @@ class DatabaseCreator:
 
             # iterar sobre los atributos de la tabla
             for vals in table.tableAttributes:
-                print(vals)
-                print(table.tableAttributes[vals])
+                print(vals) # Key
+                print(table.tableAttributes[vals]) #Value
 
 
 

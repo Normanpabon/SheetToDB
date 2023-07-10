@@ -5,6 +5,7 @@ class TableScheme:
         self.tableName = "".join(tableName.split())
         self.tableAttributes = tableAttributes
         self.tableData = tableData
+        self.tablePKKey = None
 
     def setTableAttributes(self, attributes):
         self.tableAttributes = attributes

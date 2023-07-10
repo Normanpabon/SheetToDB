@@ -1,0 +1,33 @@
+{
+  "DataSt": {
+    
+    "STRING":{
+      "SQLITE":"STRING",
+      "MYSQL":"VARCHAR(1024)"
+    },
+
+    "INTEGER":{
+        "SQLITE":"",
+      "MYSQL":""
+    },
+
+    "DOUBLE":{
+        "SQLITE":"",
+      "MYSQL":""
+    },
+
+    "DATE":{
+        "SQLITE":"",
+      "MYSQL":""
+
+    },
+    
+    "BOOL":{
+        "SQLITE":"",
+      "MYSQL":""
+
+    }
+
+    
+  }
+}
