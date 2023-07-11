@@ -25,9 +25,27 @@ class DataType:
         return tmpString
 
     #Todo: Metodo para estandarizar la fecha a formato ISO 8601. (YYYY-MM-DD)
+   #Todo2: Hay que saber desde que formato viene la fecha para poder determinar que numero es el dia y que numero es el mes en caso de que ambos sean < 12.
     @staticmethod
-    def dateToISOStandard(date:str):
-        pass
+    def dateToISOStandard(date:str,format:str):
+
+        # Verificar formato y traducir a ISO 8601.
+        match format:
+            case "YYYY-MM-DD":
+                return date
+            case "DD/MM/YYYY":
+                x = date.split("/")
+                return x[2]+ "-" + x[1] + "-" + x[0]
+            case "MM/DD/YYYY":
+                x=date.split("/")
+                return x[2] + "-" + x[0]+ "-"+ x[1]
+            case "YYYY/MM/DD":
+                x=date.split("/")
+                return x[0]+"-" +x[1] +"-" +x[2]
+            case _:
+                print("El formato dado no es correcto.")
+                return date
+            
 
     @staticmethod
     # Metodo para separar cadenas de texto separadas por comas, las devuelve en una lista
