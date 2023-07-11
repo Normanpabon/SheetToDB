@@ -6,6 +6,7 @@ class TableScheme:
         self.tableAttributes = tableAttributes
         self.tableData = tableData
         self.tablePKKey = None
+        self.checkForPk()
 
     def setTableAttributes(self, attributes):
         self.tableAttributes = attributes
@@ -15,3 +16,19 @@ class TableScheme:
 
     def setTableName(self, name):
         self.tableName = name
+
+    def checkForPk(self):
+        # revisa si hay algun atributo llamado id o uid
+
+        #todo: quizas deba implementarse un metodo que verifique que todos los datos tengan id en el campo encontrado, como prevencion de errores
+
+        for atrib, dType in self.tableAttributes.items():
+            if(atrib.casefold() == "id".casefold() or atrib.casefold() == "uid".casefold() ):
+                if(atrib == "INTEGER"):
+                    self.tablePKKey = atrib
+                    return True
+        return False
+
+    def setPkKey(self, pkName:str):
+
+        self.tablePKKey = pkName
