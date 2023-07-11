@@ -1,6 +1,7 @@
 from DBConnectors import DbConnectorManager
 from DBConfig import DbServer
 from DBConfig import TableScheme
+from DBConfig import DBDataParser
 
 
 class DatabaseCreator:
@@ -10,10 +11,25 @@ class DatabaseCreator:
         self.dbHost = None
         self.dbConnector = None
         self.dbTables = []
+        self.dbDataParser = DBDataParser.DBDataParser()
+        self.dbType = None
 
     def initialiceConnectionManager(self, dbType:int):
         # Metodo : inicializa el tipo de connector a usar en la BD ( 0. Sqlite, 1.Mysql, 2.SqlServer)
+        self.dbType = dbType
         self.dbConnector = DbConnectorManager.DbConnectionManager(dbType, self.dbName)
+
+    def convertTablesDataTypes(self):
+        # Iterar sobre lista dbTables
+        for tableScheme in self.dbTables:
+            # llamar metodo dbDataParser.DataTypeMapper y pasarle los respectivos dicts con los tipos de datos de la tabla a crear
+            #todo : quizas migrar tambien el tipo de db a crear aca
+            tmpTable = tableScheme.tableAttributes
+            newTable = self.dbDataParser.dataTypeMapper(self.dbType,tmpTable)
+
+            tableScheme.setTableAttributes(newTable)
+
+
 
 
     def insertConstructor(self):

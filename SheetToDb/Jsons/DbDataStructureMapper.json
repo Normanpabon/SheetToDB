@@ -1,33 +1,38 @@
 {
-  "DataSt": {
-    
-    "STRING":{
-      "SQLITE":"STRING",
-      "MYSQL":"VARCHAR(1024)"
-    },
-
-    "INTEGER":{
-        "SQLITE":"",
-      "MYSQL":""
-    },
-
-    "DOUBLE":{
-        "SQLITE":"",
-      "MYSQL":""
-    },
-
-    "DATE":{
-        "SQLITE":"",
-      "MYSQL":""
-
-    },
-    
-    "BOOL":{
-        "SQLITE":"",
-      "MYSQL":""
-
+  "DataSt": [
+    {
+      "STRING": [{
+        "SQLITE": "TEXT",
+        "MYSQL": "VARCHAR()"
+      }],
+      "INTEGER": [{
+        "SQLITE": "INTEGER",
+        "MYSQL": "INTEGER"
+      }],
+      "DOUBLE": [{
+        "SQLITE": "REAL",
+        "MYSQL": "DOUBLE"
+      }],
+      "DATE": [{
+        "SQLITE": "TEXT",
+        "MYSQL": "DATE"
+      }],
+      "BOOL": [{
+        "SQLITE": "INTEGER",
+        "MYSQL": "BOOL"
+      }],
+      "TEXT": [{
+        "SQLITE": "TEXT",
+        "MYSQL": "TEXT"
+      }],
+      "NULL": [{
+        "SQLITE": "NULL",
+        "MYSQL": "NULL"
+      }],
+      "BLOB": [{
+        "SQLITE": "BLOB",
+        "MYSQL": "BLOB"
+      }]
     }
-
-    
-  }
+  ]
 }
