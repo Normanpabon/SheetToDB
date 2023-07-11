@@ -16,10 +16,10 @@ def main():
 
     while(userInput != "-1"):
 
-        print("\n\n\n\nSheetToDB \t\t- Version A0.1")
-        print("-------------------------------------------------------------------------------------\n")
+        print("\n\n\n\nSheetToDB _ CLI \t\t- Version Alpha 0.1")
+        print("-------------------------------------------------------------------------------------")
         print("\nBienvenido, el proceso de conversion de sus archivos CSV a una Base de datos iniciara en breve")
-        print("---------------------------------------------------------------------------------------------------\n")
+        print("--------")
         # Pruebas de secuencia de ejecucion
 
         # 1. El usuario ingresa el o los archivos a procesar
@@ -40,6 +40,8 @@ def main():
          Ahora necesitamos inicializar el DatabaseCreator, el constructor de este objeto solo requiere el nombre de la BD a crear
          sin embargo, necesita inicializar otros objetos (atributos internos) antes de seguir (DbServer, TableScheme, DbConnectionManager) 
         '''
+
+        # todo: Manejo de errores, si no se pudo abrir o encontrar algun archivo de los especificados
 
         # 5. Se pide al usuario el nombre de la BD a crear y se asigna
         tmpName = input("\nIngrese el nombre de la BD a crear: ")

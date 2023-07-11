@@ -175,7 +175,7 @@ bg=orange</panel_attributes>
     <coordinates>
       <x>810</x>
       <y>0</y>
-      <w>1080</w>
+      <w>1116</w>
       <h>729</h>
     </coordinates>
     <panel_attributes>DBConfig
@@ -604,9 +604,9 @@ m2=1
     <id>UMLClass</id>
     <coordinates>
       <x>1440</x>
-      <y>423</y>
-      <w>423</w>
-      <h>189</h>
+      <y>396</y>
+      <w>477</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>DbDataParser
 --
@@ -619,8 +619,11 @@ _isFloat( string) : bool_
 _getAttributesDataTypes( obj ): Dict _
 bg=blue
 + DataTypeMapper( dbType: int, tableAttributes : dict): dict
-+ createTableQueryConstructor(self, dbType: int, tableAttributes:dict): dict
-</panel_attributes>
++ createTableQueryConstructorNoPK(self, dbType: int, tableAttributes:dict): string
++ createTableQueryConstructorWithPK
+	(self, dbType: int, tableAttributes:dict, tableName:str, tablePK:str) : string
++ insertIntoTableNoPKQuery(): string
++ insertIntoTableWithPKQuery():string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -638,7 +641,7 @@ bg=blue
     <id>Relation</id>
     <coordinates>
       <x>1323</x>
-      <y>477</y>
+      <y>450</y>
       <w>135</w>
       <h>27</h>
     </coordinates>
@@ -663,10 +666,10 @@ bg=yellow</panel_attributes>
     <coordinates>
       <x>90</x>
       <y>432</y>
-      <w>1521</w>
+      <w>1512</w>
       <h>351</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;160.0;640.0;160.0;640.0;370.0;1530.0;370.0;1670.0;290.0;1660.0;200.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0;640.0;160.0;640.0;370.0;1530.0;370.0;1660.0;280.0;1660.0;200.0</additional_attributes>
   </element>
 </diagram>

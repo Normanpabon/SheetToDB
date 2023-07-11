@@ -27,7 +27,11 @@ class DBDataParser:
         return newDic
 
 
-    # Todo: Implementar para datos con PKs existentes
+    def insertIntoTableNoPKQuery(self):
+        pass
+
+    def insertIntoTableWithPKQuery(self):
+        pass
     def createTableQueryConstructorWithPK(self, dbType: int, tableAttributes:dict, tableName:str, tablePK:str):
         dbType = DbType.DbType(dbType).name
         returnQuery = ""
@@ -45,8 +49,11 @@ class DBDataParser:
 
             returnQuery += tmpQuery + ");"
         elif(dbType == "MYSQL"):
+
+            # TODO: Implementar para Mysql, hace falta implementar el connector correspondiente
             pass
-        pass
+
+
 
         return returnQuery
 
@@ -62,7 +69,8 @@ class DBDataParser:
 
             returnQuery += ");"
         elif(dbType == "MYSQL"):
+            # TODO: Implementar para Mysql, hace falta implementar el connector correspondiente
             pass
-        pass
+
 
         return returnQuery
