@@ -5,7 +5,7 @@ class DBDataParser:
 
 
     def __init__(self):
-        self.jsonFile = open("/../Jsons/DbDataStructureMapper.json")
+        self.jsonFile = open("Jsons/DbDataStructureMapper.json")
         self.jsonDSData = json.load(self.jsonFile)
 
     def dataTypeMapper(self, dbType: int, tableAttributes: dict):
@@ -25,3 +25,44 @@ class DBDataParser:
                             newDic[attribName] = (syntax)
 
         return newDic
+
+
+    # Todo: Implementar para datos con PKs existentes
+    def createTableQueryConstructorWithPK(self, dbType: int, tableAttributes:dict, tableName:str, tablePK:str):
+        dbType = DbType.DbType(dbType).name
+        returnQuery = ""
+
+        if(dbType == "SQLITE"):
+            returnQuery = "CREATE TABLE " + tableName + "( "
+            # Usarla para agregar los otros atributos
+            tmpQuery = ""
+
+            for attribute, dataType in tableAttributes.items():
+                if (attribute == tablePK):
+                    returnQuery += attribute + " " + dataType + "PRIMARY KEY"
+                else:
+                    tmpQuery += (", " + attribute + " " + dataType)
+
+            returnQuery += tmpQuery + ");"
+        elif(dbType == "MYSQL"):
+            pass
+        pass
+
+        return returnQuery
+
+    def createTableQueryConstructorNoPK(self, dbType: int, tableAttributes:dict, tableName:str):
+        dbType = DbType.DbType(dbType).name
+        returnQuery = ""
+
+        if(dbType == "SQLITE"):
+            returnQuery = "CREATE TABLE " + tableName + "( id INTEGER PRIMARY KEY"
+
+            for attribute, dataType in tableAttributes.items():
+                returnQuery += (", " + attribute + " " + dataType)
+
+            returnQuery += ");"
+        elif(dbType == "MYSQL"):
+            pass
+        pass
+
+        return returnQuery

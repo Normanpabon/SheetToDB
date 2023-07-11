@@ -31,7 +31,31 @@ class DatabaseCreator:
 
 
 
+    # Todo : Terminar llamados. Este metodo se encarga de crear la respectiva BD y llamar los querys para la creacion de tablas e ingreso de datos
 
+    def createDatabase(self):
+
+        for table in self.dbTables:
+            tmpTableQuery = ""
+            #verificamos si se detecto un PK en la tabla y llamamos al metodo acorde
+            tmpTablePk = table.tablePKKey
+            if(tmpTablePk == None):
+                tmpTableQuery = self.dbDataParser.createTableQueryConstructorNoPK(self.dbType, table.tableAttributes,
+                                                                                  table.tableName)
+            else:
+                tmpTableQuery = self.dbDataParser.createTableQueryConstructorWithPK(self.dbType, table.tableAttributes,table.tableName, tmpTablePk)
+            # Pedimos query para crear las tablas con sus campos
+
+
+            #Enviamos el query a la bd
+            self.sendQueryToDb(tmpTableQuery)
+
+            # todo: Crear queries para insertar los datos de la tabla
+
+
+
+
+    # Todo DEPRECATED
     def insertConstructor(self):
 
         # todo: debe adaptarse la sintaxis segun la bd a la que se vaya a pasar la info
@@ -54,9 +78,6 @@ class DatabaseCreator:
             # iterar sobre los obj de tableData e insertarlos
 
 
-    def sqlDatatypeChanger(self):
-        # Metodo para cambiar los tipos de datos acorde al tipo de sql a utilizar
-        pass
 
     def sendQueryToDb(self, query:str):
         #Llama al dbconnector y envia la peticion
@@ -66,13 +87,14 @@ class DatabaseCreator:
         #todo: borrar
         print(result)
 
-
     def addTableFromScratch(self, tableName: str, tableAttrib, tableData):
         # Crea una tabla desde zero y la agrega a la lista de tablas del objeto actual
         tmpObj = TableScheme.TableScheme(tableName, tableAttrib, tableData)
+        tmpObj.checkForPk()
         self.addTable(tmpObj)
     def addTable(self, table: TableScheme.TableScheme):
         # Agrega una tabla a la lista del objeto actual
+        table.checkForPk()
         self.dbTables.append(table)
 
     def setDbHost(self, dbServer: DbServer.DbServer):

@@ -24,7 +24,7 @@ class TableScheme:
 
         for atrib, dType in self.tableAttributes.items():
             if(atrib.casefold() == "id".casefold() or atrib.casefold() == "uid".casefold() ):
-                if(atrib == "INTEGER"):
+                if(dType == "INTEGER"):
                     self.tablePKKey = atrib
                     return True
         return False

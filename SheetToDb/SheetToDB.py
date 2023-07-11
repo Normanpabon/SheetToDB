@@ -19,7 +19,9 @@ class SheetToDB:
 
     def createDb(self):
 
-        self.dbSettings.insertConstructor()
+        self.dbSettings.createDatabase()
+        #todo: deprecated
+        #self.dbSettings.insertConstructor()
 
 
     def addCsvFile(self, path : str):

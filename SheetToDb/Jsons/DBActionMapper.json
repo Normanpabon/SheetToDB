@@ -1,17 +1,34 @@
 {
-    "Action":{
-        "CreateDB":{
-            "SQLITE":"",
-          "MYSQL":""
-        },
+    "DBMapper":[{
+        "CreateDB":[{
+            "SQLITE":"NULL",
+          "MYSQL":"CREATE DATABASE "
+        }],
 
-        "ReadDB":{
+        "ReadDB":[{
             "SQLITE":"",
           "MYSQL":""
-        },
-        "CreateTable":{
-        "SQLITE":"",
-        "MYSQL":""
-        }
-    }
+        }],
+
+        "CreateTable":[{
+        "SQLITE":"CREATE TABLE",
+        "MYSQL":"CREATE TABLE"
+        }],
+
+        "PrimaryKey": [{
+            "SQLITE":"PRIMARY KEY",
+            "MYSQL":"PRIMARY KEY"
+        }],
+
+        "InsertManualPK": [{
+            "SQLITE":"",
+          "MYSQL":""
+        }],
+
+        "InsertAutoPK": [{
+            "SQLITE":"",
+          "MYSQL":""
+        }]
+
+    }]
 }
