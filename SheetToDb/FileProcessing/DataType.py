@@ -190,7 +190,7 @@ class DataType:
 
             # Verificamos si esta vacio
             elif (obj[value] == ""):
-                atributes[value] = "VARCHAR(1024)"
+                atributes[value] = "STRING"
 
             # Verificamos si es una fecha
 
@@ -202,9 +202,9 @@ class DataType:
             elif (obj[value] == "FALSE" or obj[value] == "TRUE"):
                 atributes[value] = "BOOL"
 
-            # Se toma como varchar
+            # Se toma como string
             else:
-                atributes[value] = "VARCHAR(1024)"
+                atributes[value] = "STRING"
 
             # atributes[value]= (type(obj[value]))
 

@@ -37,5 +37,9 @@ class DbConnectionManager():
 
         return result
 
+    def callCommit(self):
+
+        self.connectorObj.commit()
+
 
 

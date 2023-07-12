@@ -23,7 +23,7 @@ def main():
         # Pruebas de secuencia de ejecucion
 
         # 1. El usuario ingresa el o los archivos a procesar
-        filesToProccess = input("Ingrese las rutas de los archivos a procesar seguidos de ',' entre ellos\n: ")
+        filesToProccess = input("Ingrese las rutas de los archivos a procesar seguidos de ',' entre ellos\n--> ")
 
         # 2. El listado de PATHS se procesa y se deja la o las rutas de los archivos en una lista
         filesToProccessList = DataType.DataType.separateStrWithComma(filesToProccess)
@@ -66,11 +66,11 @@ def main():
             # Llama la etapa de proceso de las tablas a la bd
             sheetToDb.createDb()
         elif(tmpInput ==1):
-            pass
+            print("Proximamente, falta por implementar :(")
         elif(tmpInput==2):
-            pass
+            print("Proximamente, falta por implementar :(")
 
-        print(sheetToDb)
+
        # finPruebas
 
 

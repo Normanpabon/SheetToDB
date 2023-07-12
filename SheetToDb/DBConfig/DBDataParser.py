@@ -26,12 +26,58 @@ class DBDataParser:
 
         return newDic
 
+    # todo: pensar en optimizacion a futuro, pasandole directamente el listado de elementos a insertar
+    def insertIntoTableQuery(self, dbType:int, tableData:dict, tableName:str):
+        #Inserta datos cuando la tabla tiene una pk definida
+        returnQuery = ""
+        dbType = DbType.DbType(dbType).name
+        #tableData = DBDataParser.removeEmptyAttributes(tableData)
+        if (dbType == "SQLITE"):
+            returnQuery = "INSERT INTO " + tableName + "("
+            tmpQuery = "VALUES( "
+            first = 0
+            for attribute, value in tableData.items():
+                if(first > 0):
+                    returnQuery += ", "
+                    tmpQuery += ", "
 
-    def insertIntoTableNoPKQuery(self):
-        pass
+                first = 1
+                returnQuery += attribute
+                tmpQuery += value
 
-    def insertIntoTableWithPKQuery(self):
-        pass
+            # quitar ',' del final
+            tmpQuery = tmpQuery + " );"
+            returnQuery = returnQuery+ ") " + tmpQuery
+
+        elif(dbType == "MYSQL"):
+            pass
+
+
+        return returnQuery
+    @staticmethod
+    def removeEmptyAttributes(tableAttributes:dict):
+        # Devuelve diccionario, retirando los elementos que tengan una llave pero no valor asociado o vacio
+        returnDict = {}
+        for key, val in tableAttributes.items():
+            if(len(val) > 0 and val != None):
+                returnDict[key] = val
+
+        return returnDict
+
+    @staticmethod
+    def putQuotationMarksRequiredDataTypes(tableAttributes:dict, tableData:dict):
+        returnDict = {}
+        #dbType = DbType.DbType(dbType).name
+        tableData = DBDataParser.removeEmptyAttributes(tableData)
+
+        for key, val in tableData.items():
+            if(tableAttributes[key]=="STRING"):
+                returnDict[key] = '"' + val + '"'
+            else:
+                returnDict[key] = val
+
+        return returnDict
+
     def createTableQueryConstructorWithPK(self, dbType: int, tableAttributes:dict, tableName:str, tablePK:str):
         dbType = DbType.DbType(dbType).name
         returnQuery = ""
@@ -43,7 +89,7 @@ class DBDataParser:
 
             for attribute, dataType in tableAttributes.items():
                 if (attribute == tablePK):
-                    returnQuery += attribute + " " + dataType + "PRIMARY KEY"
+                    returnQuery += attribute + " " + dataType + " PRIMARY KEY"
                 else:
                     tmpQuery += (", " + attribute + " " + dataType)
 
@@ -62,7 +108,7 @@ class DBDataParser:
         returnQuery = ""
 
         if(dbType == "SQLITE"):
-            returnQuery = "CREATE TABLE " + tableName + "( id INTEGER PRIMARY KEY"
+            returnQuery = "CREATE TABLE " + tableName + "( id INTEGER PRIMARY KEY AUTOINCREMENT"
 
             for attribute, dataType in tableAttributes.items():
                 returnQuery += (", " + attribute + " " + dataType)

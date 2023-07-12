@@ -44,48 +44,34 @@ class DatabaseCreator:
                                                                                   table.tableName)
             else:
                 tmpTableQuery = self.dbDataParser.createTableQueryConstructorWithPK(self.dbType, table.tableAttributes,table.tableName, tmpTablePk)
-            # Pedimos query para crear las tablas con sus campos
-
 
             #Enviamos el query a la bd
             self.sendQueryToDb(tmpTableQuery)
 
             # todo: Crear queries para insertar los datos de la tabla
+            for data in table.tableData:
+                tmpProccesedData = DBDataParser.DBDataParser.putQuotationMarksRequiredDataTypes(table.tableAttributes, data)
+                tmpDataInsertQuery = self.dbDataParser.insertIntoTableQuery(self.dbType, tmpProccesedData, table.tableName)
 
+                #Enviar query a la BD
+                try:
+                    self.sendQueryToDb(tmpDataInsertQuery)
+                except Exception as error:
+                    print(error)
+                    print("Query que causo el error:")
+                    print(tmpDataInsertQuery)
 
+            #todo : llamar commit para bd
+            self.callForCommit()
+            print("Datos creados correctamente ! \n\n\n")
 
-
-    # Todo DEPRECATED
-    def insertConstructor(self):
-
-        # todo: debe adaptarse la sintaxis segun la bd a la que se vaya a pasar la info
-        # ref para sqlite : https://www.sqlite.org/datatype3.html
-
-        # Metodo: se encarga de generar el insert a enviar a la bd para cada tabla
-        tmpInsert = ""
-
-        for table in self.dbTables:
-            # Crear tabla si no existe con los tipos de datos de tableAttributes
-            tmpInsert = "CREATE TABLE [IF NOT EXISTS] " + table.tableName + "("
-
-            # iterar sobre los atributos de la tabla
-            for vals in table.tableAttributes:
-                print(vals) # Key
-                print(table.tableAttributes[vals]) #Value
-
-
-
-            # iterar sobre los obj de tableData e insertarlos
-
-
-
+    def callForCommit(self):
+        self.dbConnector.callCommit()
     def sendQueryToDb(self, query:str):
         #Llama al dbconnector y envia la peticion
         # todo: mostrar el resultado cuando se haga la gui
         result = self.dbConnector.writeQuery(query)
 
-        #todo: borrar
-        print(result)
 
     def addTableFromScratch(self, tableName: str, tableAttrib, tableData):
         # Crea una tabla desde zero y la agrega a la lista de tablas del objeto actual
