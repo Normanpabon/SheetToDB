@@ -24,6 +24,8 @@ eje : Estudiantes_Universidad_SanJuan
 
 - Python 3.6+
 - CSV
+- python-dateutil
+- pyqt5-tools
 
 ## Pendiente:
 
